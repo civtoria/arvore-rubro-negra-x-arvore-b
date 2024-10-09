@@ -22,8 +22,11 @@ consulta_sql = 'SELECT emp_no, dept_no FROM dept_emp'
 dados = ler_dados_db(conexao, consulta_sql)
 
 # Gerar chaves de busca aleatórias
-tamanho_dados = len(dados)
-chaves_busca = [random.randint(0, tamanho_dados * 10) for _ in range(1000)]
+# tamanho_dados = len(dados)
+# chaves_busca = [random.randint(0, tamanho_dados * 10) for _ in range(100)]
+
+# Buscando direto no banco de dados
+chaves_busca = [chave for chave, _ in dados]
 
 # Comparando inserção e busca na Red-Black Tree (SortedDict)
 rbt_estrutura = SortedDict()
